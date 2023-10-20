@@ -1,8 +1,14 @@
 
-function ConverterPokemon(pokemons) {
+function ConverterPokemonTypes(pokemonsTypes) {
+    return pokemonsTypes.map(typeslist)
+
+}
+
+
+function ConverterPokemonList(pokemons) {
     return `
         li class="pokemon">
-            <span class="numero">#001</span>
+            <span class="numero">#${pokemon.number}</span>
             <span class="nome">${pokemon.name}</span>
 
             <div class="detalhes">
@@ -21,5 +27,6 @@ function ConverterPokemon(pokemons) {
 const pokemonsList = document.getElementsById('pokemonsList')
 
 PokeApi.getPokemons().then((pokemons = []) => {
-    pokemonsList.innerHTML += pokemons.map(ConverterPokemon).join(``)    
+    const newHTML = pokemons.map(ConverterPokemonList).join(``) 
+    pokemonsList.innerHTML = newHTML
 })
